@@ -1,0 +1,1 @@
+<img class="h-14" src="{{asset('/images/action-auto-pecas.jpg')}}" alt="">
