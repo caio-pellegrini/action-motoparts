@@ -1,24 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<x-app-layout>
+    <x-slot name="title">Cardápio | Cafuné</x-slot>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Cardápio | Cafuné</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <!-- Styles -->
+    @section('aditional-head')
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <style>
@@ -38,17 +21,14 @@
             margin-top: 8px;
         }
     </style>
-
-</head>
-
-<body class="antialiased">
-    @include('layouts.navigation')
+    @endsection
 
 
+    <div class="sm:justify-center sm:items-center relative min-h-screen bg-center bg-gray-100 {{ request()->routeIs('cardapio') ? 'pt-16' : '' }}">
 
-    <div class="sm:justify-center sm:items-center relative min-h-screen bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white {{ request()->routeIs('cardapio') ? 'pt-16' : '' }}">
+
         {{--Links acesso rápido --}}
-        <div class="flex justify-center space-x-4 bg-gray-100 p-4 fixed  w-full z-50 ">
+        <div class="flex justify-center space-x-4 bg-gray-100 p-4 fixed w-full">
 
             @foreach ($categories as $category)
             <a href="#{{ strtolower($category->name) }}" class="font-sans px-5 py-1 text-white rounded-3xl bg-azur hover:bg-cafune transition duration-300">
@@ -56,7 +36,6 @@
             </a>
             @endforeach
         </div>
-
 
 
 
@@ -114,10 +93,10 @@
                     @if ((session('adicionado') == $product->id))
                     <!-- Popup Message Box -->
                     <div id="popup-message" class=" fixed bottom-4 right-4 bg-white border border-gray-200 rounded shadow-lg p-4 z-50">
-                    <p id="popup-message-content" class="text-sm text-gray-700">Your message here...</p>
+                        <p id="popup-message-content" class="text-sm text-gray-700">Your message here...</p>
                     </div>
 
-                    
+
                     <div id="alert-3" class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
 
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
@@ -147,53 +126,58 @@
         @endif
 
     </div>
-    @include('layouts.footer')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var forms = document.querySelectorAll('.add-to-cart-form');
 
-            forms.forEach(function(form) {
-                form.addEventListener('submit', function(event) {
-                    var quantity = form.querySelector('[name="qnt"]').value;
 
-                    if (quantity <= 0) {
-                        event.preventDefault();
-                        alert('Por favor, insira uma quantidade maior que zero.');
-                    }
+    <x-slot name="footer"></x-slot>
+
+    <x-slot name="scripts">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var forms = document.querySelectorAll('.add-to-cart-form');
+
+                forms.forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        var quantity = form.querySelector('[name="qnt"]').value;
+
+                        if (quantity <= 0) {
+                            event.preventDefault();
+                            alert('Por favor, insira uma quantidade maior que zero.');
+                        }
+                    });
+
                 });
 
-            });
+                document.querySelectorAll('.increase-quantity').forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        var productId = this.getAttribute('data-id');
+                        var quantitySpan = document.getElementById('quantity-' + productId);
+                        var quantityInput = document.getElementById('input-quantity-' + productId);
 
-            document.querySelectorAll('.increase-quantity').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    var productId = this.getAttribute('data-id');
-                    var quantitySpan = document.getElementById('quantity-' + productId);
-                    var quantityInput = document.getElementById('input-quantity-' + productId);
-
-                    var currentQuantity = parseInt(quantitySpan.textContent, 10);
-                    quantitySpan.textContent = currentQuantity + 1;
-                    quantityInput.value = currentQuantity + 1;
-                });
-            });
-
-            document.querySelectorAll('.decrease-quantity').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    var productId = this.getAttribute('data-id');
-                    var quantitySpan = document.getElementById('quantity-' + productId);
-                    var quantityInput = document.getElementById('input-quantity-' + productId);
-
-                    var currentQuantity = parseInt(quantitySpan.textContent, 10);
-                    if (currentQuantity > 0) {
-                        quantitySpan.textContent = currentQuantity - 1;
+                        var currentQuantity = parseInt(quantitySpan.textContent, 10);
+                        quantitySpan.textContent = currentQuantity + 1;
                         quantityInput.value = currentQuantity + 1;
-                    };
+                    });
+                });
 
-                })
+                document.querySelectorAll('.decrease-quantity').forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        var productId = this.getAttribute('data-id');
+                        var quantitySpan = document.getElementById('quantity-' + productId);
+                        var quantityInput = document.getElementById('input-quantity-' + productId);
+
+                        var currentQuantity = parseInt(quantitySpan.textContent, 10);
+                        if (currentQuantity > 0) {
+                            quantitySpan.textContent = currentQuantity - 1;
+                            quantityInput.value = currentQuantity + 1;
+                        };
+
+                    })
+                });
+
             });
+        </script>
 
-        });
-    </script>
-</body>
+    </x-slot>
 
-</html>
+</x-app-layout>

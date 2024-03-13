@@ -1,27 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Cafuné Pâtisserie</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-</head>
-
-<body class="antialiased">
-    @include('layouts.navigation')
+<x-app-layout>
+    <x-slot name="title">Cafuné Pâtisserie</x-slot>
 
     <div class="container">
 
@@ -43,7 +21,7 @@
         <div class="flex justify-center items-center flex-wrap mt-[50px]">
             <img class="p-[10px] max-w-full mb-[60px]" src="{{asset('/home/Destaque 1.png')}}" alt="">
             <img class="p-[10px] max-w-full mb-[60px]" src="{{asset('/home/Destaque 2.png')}}" alt="">
-            
+
             <div class="relative">
                 <img class="p-[10px] max-w-full mb-[60px]" src="{{asset('/home/Descrição - Cardápio (1).png')}}" alt="">
                 <a href="{{ route('cardapio') }}" class="absolute left-2/4 top-[650px] transform -translate-x-1/2 -translate-y-1/2 bg-[#2C2B4C] text-[white] px-[20px] py-[15px] no-underline inline-block text-[15px] cursor-pointer border-[none] rounded-[20px] hover:bg-cafune">CONHEÇA O CARDÁPIO</a>
@@ -63,13 +41,8 @@
                 <a class="bg-[#2C2B4C] text-[white] px-[20px] py-[15px] no-underline inline-block text-[15px] cursor-pointer border-[none] rounded-[20px] hover:bg-cafune" href="{{ route('register') }}">JUNTE-SE A NÓS!</a>
             </div>
         </div>
+    </div>  
 
+    <x-slot name="footer"></x-slot>
 
-
-
-    </div>
-
-    @include('layouts.footer')
-</body>
-
-</html>
+</x-app-layout>
