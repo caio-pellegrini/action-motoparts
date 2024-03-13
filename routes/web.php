@@ -67,6 +67,4 @@ Route::get('/admin/login', [AdminAuthController::class, 'loginForm'])->name('adm
 Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
 
 
-
-
 require __DIR__.'/auth.php';
