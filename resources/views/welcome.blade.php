@@ -10,8 +10,8 @@
             </video>
 
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <p class="font-aurore text-transparent text-center text-3xl md:text-5xl" style="text-shadow: 0 0 0px #FFF, 0 0 3px #FFF, 0 0 0px #FFF, 0 0 15px #000, 0 0 20px #000, 0 0 25px #000;">
-                    Cafuné, o sabor do carinho
+                <p class="font-arial text-transparent text-center text-3xl md:text-5xl" style="text-shadow: 0 0 0px #FFF, 0 0 3px #FFF, 0 0 0px #FFF, 0 0 15px #000, 0 0 20px #000, 0 0 25px #000;">
+                    Action Moto Parts
                 </p>
             </div>
         </div>
