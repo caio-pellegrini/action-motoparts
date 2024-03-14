@@ -2,7 +2,7 @@
 
     <x-slot name="title">Sobre Nós | Cafuné</x-slot>
 
-    <div class="font-aurore text-[#333]"> 
+    <div class="font-readex text-[#333]"> 
 
         <div class="flex justify-center items-center">
             <div class="text-[#000] text-center max-w-[80%]">
