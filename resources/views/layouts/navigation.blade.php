@@ -39,26 +39,19 @@
         <div class="mx-auto px-4 sm:px-6 lg:px-8 ">
             <div class="flex justify-between h-16">
 
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="{{ route('/') }}">
+                        <x-application-logo></x-application-logo>
+                    </a>
+                </div>
 
-                <div class="flex">
-                    <!-- Logo -->
-                    <div class="shrink-0 flex items-center">
-                        <a href="{{ route('/') }}">
-                            <x-application-logo></x-application-logo>
-                        </a>
+                <!-- Search Bar -->
+                <div class="flex-grow my-3">
+                    <div class="max-w-xl mx-auto flex items-center justify-between bg-cinza-search py-1 px-2 rounded-lg">
+                        <p class="text-gray-500">Olá, o que você procura?</p>
+                        <img src="{{ asset('/images/lupa-icon.svg') }}" alt="">
                     </div>
-
-                    <!-- Search Bar -->
-                    <div class="hidden flex items-center space-x-5 sm:-my-px sm:ml-10 sm:flex ">
-
-
-                        <div class="ml-[450px] w-100 h-10 bg-gray-400 p-2">
-                            <p>Olá, eu sou uma barra de pesquisa</p>
-                        </div>
-                        
-                    </div>
-
-
                 </div>
 
                 <!-- Settings Dropdown -->
@@ -105,14 +98,14 @@
                     </div>
                     @else
 
-                    <div class="hidden space-x-4 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link class="bg-verde-cinza text-white px-3 py-1 rounded-lg" :href="route('login')">
-                            {{ __('ENTRAR') }}
+                    <div class="hidden space-x-6 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('login')">
+                            {{ __('CADASTRE-SE') }}
                         </x-nav-link>
 
                         @if (Route::has('register'))
-                        <x-nav-link class="bg-verde-cinza text-white px-3 py-1 rounded-lg" :href="route('register')">
-                            {{ __('CADASTRE-SE') }}
+                        <x-nav-link :href="route('register')">
+                            {{ __('ENTRAR') }}
                         </x-nav-link>
                         @endif
                     </div>
@@ -140,7 +133,7 @@
     <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-cinza-header text-white border-b-[3px] border-verde-escuro">
         <div class="flex justify-center items-center h-8">
             <!-- Navigation Links -->
-            <div class="hidden space-x-5 sm:flex">
+            <div class="hidden space-x-8 sm:flex">
                 <x-nav-link class="text-lg" :href="route('/')" :active="request()->routeIs('/')">
                     {{ __('INÍCIO') }}
                 </x-nav-link>
@@ -163,7 +156,7 @@
                     </span>
                     @endif
 
-                    
+
                 </x-nav-link>
             </div>
         </div>

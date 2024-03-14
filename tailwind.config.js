@@ -26,6 +26,7 @@ export default {
                 'verde-escuro': '#045D21',
                 'cinza-header': '#C1C1C1',
                 'verde-cinza': '#487858',
+                'cinza-search': '#D9D9D9',
             },
 
             colors:
