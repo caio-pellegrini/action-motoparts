@@ -34,7 +34,6 @@
         </div>
     </div>
 
-
     <!-- Primary Navigation Menu -->
     <div class="mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <div class="mx-auto px-4 sm:px-6 lg:px-8 ">
@@ -85,6 +84,7 @@
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('profile.edit')">
                                     {{ __('PERFIL') }}
+
                                 </x-dropdown-link>
 
                                 <x-dropdown-link :href="route('pedidos')">
