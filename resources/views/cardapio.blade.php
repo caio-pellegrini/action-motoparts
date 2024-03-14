@@ -31,7 +31,7 @@
         <div class="flex justify-center space-x-4 bg-gray-100 p-4 fixed w-full">
 
             @foreach ($categories as $category)
-            <a href="#{{ strtolower($category->name) }}" class="font-sans px-5 py-1 text-white rounded-3xl bg-azur hover:bg-cafune transition duration-300">
+            <a href="#{{ strtolower($category->name) }}" class="font-sans px-5 py-1 text-white rounded-3xl bg-verde-escuro hover:bg-cafune transition duration-300">
                 {{ mb_strtoupper($category->name, 'UTF-8') }}
             </a>
             @endforeach
@@ -70,11 +70,11 @@
                             <input type="hidden" name="unit" value="{{ $product->unit_of_measure }}">
                             <div class="flex items-center">
                                 {{-- Botões de adição e remoção --}}
-                                <button type="button" class="decrease-quantity text-azur bg-transparent hover:bg-gray-200 p-2 rounded-full" data-id="{{ $product->id }}">
+                                <button type="button" class="decrease-quantity text-verde-escuro bg-transparent hover:bg-gray-200 p-2 rounded-full" data-id="{{ $product->id }}">
                                     <span class="material-symbols-outlined material-google">remove</span>
                                 </button>
                                 <span id="quantity-{{ $product->id }}">0</span>
-                                <button type="button" class="increase-quantity text-azur bg-transparent hover:bg-gray-200 p-2 rounded-full" data-id="{{ $product->id }}">
+                                <button type="button" class="increase-quantity text-verde-escuro bg-transparent hover:bg-gray-200 p-2 rounded-full" data-id="{{ $product->id }}">
                                     <span class="material-symbols-outlined material-google">add</span>
                                 </button>
 

@@ -23,12 +23,14 @@ export default {
             backgroundColor: {
                 'cafune-transparente': '#8190A0CC',
                 'cafune': '#019a2d',
-                'azur': '#2C2B4C',
+                'verde-escuro': '#045D21',
+                'cinza-header': '#C1C1C1',
+                'verde-cinza': '#487858',
             },
 
             colors:
              {
-                'azur': '#2C2B4C',
+                'verde-escuro': '#045D21',
             },
         },
     },

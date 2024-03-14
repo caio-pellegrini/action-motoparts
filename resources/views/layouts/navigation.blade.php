@@ -1,39 +1,49 @@
 <nav x-data="{ open: false }" class="font-readex dark:bg-black border-b border-gray-100 {{ request()->routeIs('cardapio') ? 'fixed top-0 w-full z-50' : '' }}">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-green-700 text-white">
-        <div class="flex gap-4 mx-auto px-4 sm:px-6 lg:px-8 text-white">
-            <div>
-                <a class="flex items-center gap-1" href="">
-                    <img src="{{ asset('/images/whatsapp.svg') }}" alt="">
-                    <p>(16) 99646-4493</p>
-                </a>
+        <div class="flex justify-between mx-auto px-4 sm:px-6 lg:px-8 text-white">
+            <div class="flex space-x-4">
+                <div>
+                    <a class="flex items-center gap-1" href="">
+                        <img src="{{ asset('/images/whatsapp.svg') }}" alt="">
+                        <p>(16) 99646-4493</p>
+                    </a>
+                </div>
+                <div>
+                    <a class="flex items-center gap-1" href="">
+                        <img src="{{ asset('/images/phone.svg') }}" alt="">
+                        <p>3242-9074</p>
+                    </a>
+                </div>
             </div>
-            <div>
-                <a class="flex items-center gap-1" href="">
-                    <img src="{{ asset('/images/whatsapp.svg') }}" alt="">
-                    <p>(16) 99646-4493</p>
-                </a>
-            </div>
-            <div>
-                <a class="flex items-center gap-1" href="">
-                    <img src="{{ asset('/images/whatsapp.svg') }}" alt="">
-                    <p>(16) 99646-4493</p>
-                </a>
-            </div>
-            <div>
-                <a class="flex items-center gap-1" href="">
-                    <img src="{{ asset('/images/whatsapp.svg') }}" alt="">
-                    <p>(16) 99646-4493</p>
-                </a>
+
+            <div class="flex space-x-4  ">
+                <div>
+                    <a class="flex items-center gap-1" href="">
+                        <img src="{{ asset('/images/facebook.svg') }}" alt="">
+                        <p>action_parts</p>
+                    </a>
+                </div>
+                <div>
+                    <a class="flex items-center gap-1" href="">
+                        <img src="{{ asset('/images/instagram.svg') }}" alt="">
+                        <p>actionmotoparts</p>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>      
+    </div>
+
+
+
 
 
     <!-- Primary Navigation Menu -->
-    <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-white text-white">
-        <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-red-100">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 text-white">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 ">
             <div class="flex justify-between h-16">
+
+
                 <div class="flex">
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
@@ -42,25 +52,14 @@
                         </a>
                     </div>
 
-                    <!-- Navigation Links -->
-                    <div class="hidden space-x-5 sm:-my-px sm:ml-10 sm:flex ">
-                        <x-nav-link class="text-lg ml-10" :href="route('/')" :active="request()->routeIs('/')">
-                            {{ __('INÍCIO') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('sobre-nos')" :active="request()->routeIs('sobre-nos')">
-                            {{ __('QUEM SOMOS') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('cardapio')" :active="request()->routeIs('cardapio')">
-                            {{ __('PRODUTOS') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('exibircarrinho')" :active="request()->routeIs('exibircarrinho')">
-                            {{ __('CARRINHO') }}
-                            @if(\Cart::getContent()->count() != '0')
-                            <span class="-mt-2 ml-1 bg-yellow-800 text-white text-xs font-sans mr-2 px-1.5 py-px rounded">
-                                {{ \Cart::getContent()->count() }}
-                            </span>
-                            @endif
-                        </x-nav-link>
+                    <!-- Search Bar -->
+                    <div class="hidden flex items-center space-x-5 sm:-my-px sm:ml-10 sm:flex ">
+
+
+                        <div class="ml-[450px] w-100 h-10 bg-gray-400 p-2">
+                            <p>Olá, eu sou uma barra de pesquisa</p>
+                        </div>
+                        
                     </div>
 
 
@@ -110,12 +109,12 @@
                     @else
 
                     <div class="hidden space-x-4 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link class="text-xl" :href="route('login')">
+                        <x-nav-link class="bg-verde-cinza text-white px-3 py-1 rounded-lg" :href="route('login')">
                             {{ __('ENTRAR') }}
                         </x-nav-link>
 
                         @if (Route::has('register'))
-                        <x-nav-link class="text-xl" :href="route('register')">
+                        <x-nav-link class="bg-verde-cinza text-white px-3 py-1 rounded-lg" :href="route('register')">
                             {{ __('CADASTRE-SE') }}
                         </x-nav-link>
                         @endif
@@ -141,11 +140,46 @@
 
 
 
-    <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-white text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-            <p>WhatsApp</p>
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-cinza-header text-white border-b-[3px] border-verde-escuro">
+        <div class="flex justify-center items-center h-8">
+            <!-- Navigation Links -->
+            <div class="hidden space-x-5 sm:flex">
+                <x-nav-link class="text-lg" :href="route('/')" :active="request()->routeIs('/')">
+                    {{ __('INÍCIO') }}
+                </x-nav-link>
+                <x-nav-link :href="route('sobre-nos')" :active="request()->routeIs('sobre-nos')">
+                    {{ __('QUEM SOMOS') }}
+                </x-nav-link>
+                <x-nav-link :href="route('cardapio')" :active="request()->routeIs('cardapio')">
+                    {{ __('PRODUTOS') }}
+                </x-nav-link>
+                <x-nav-link :href="route('cardapio')" :active="request()->routeIs('cardapio')">
+                    {{ __('CATÁLOGO') }}
+                </x-nav-link>
+                <x-nav-link :href="route('exibircarrinho')" :active="request()->routeIs('exibircarrinho')">
+                    {{ __('CONTATO') }}
+
+
+                    @if(\Cart::getContent()->count() != '0')
+                    <span class="-mt-2 ml-1 bg-yellow-800 text-white text-xs font-sans mr-2 px-1.5 py-px rounded">
+                        {{ \Cart::getContent()->count() }}
+                    </span>
+                    @endif
+
+                    
+                </x-nav-link>
+            </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
 
 
 
