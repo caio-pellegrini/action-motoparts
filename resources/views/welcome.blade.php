@@ -15,14 +15,9 @@
         </div>
     </div>
 
-    <div class="relative w-full overflow-hidden mb-auto sm:h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh]">
-        <img class="w-full h-full object-contain" src="{{asset('/images/banner_home2.png')}}" alt="Banner Home">
-        <a href="/produtos" class="absolute left-0 right-0 mx-auto bottom-10 sm:bottom-8 md:bottom-6 lg:bottom-4 xl:bottom-3 bg-green-500 text-white px-6 py-2 rounded shadow-lg hover:bg-green-600 transition-colors text-sm sm:text-base text-center w-max">
-            Conheça nossos produtos
-        </a>
-    </div>
-
-
+    <a href="/produtos" class="relative w-full overflow-hidden mb-auto sm:h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh]">
+        <img class="w-full h-full object-contain" src="{{asset('/images/banner_home2.png')}}"></img>
+    </a>
 
     <div class="md:flex items-center justify-center mt-40">
         <div class="px-24">

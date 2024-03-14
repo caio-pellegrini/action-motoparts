@@ -8,11 +8,11 @@
     <h2 class="flex items-center justify-center mt-6 text-3xl p-8">MAIS VENDIDOS</h2>
     <div class="flex items-center justify-center">
         <main class="grid grid-cols-3 gap-12 px-40 mt-20">
-            <div class="max-w-xs bg-white rounded-lg  overflow-hidden">
+            <div class="max-w-xs bg-white rounded-lg  overflow-hidden flex flex-col">
                 <a href="#">
                     <img class="w-full" src="/images/produto1.png" alt="">
                 </a>
-                <div class="px-5 py-3">
+                <div class="px-5 py-3 flex flex-col justify-between">
                     <h5 class="text-gray-900 font-bold text-xl mb-2">Mini Pisca Flecha Lente Frisada | AWA</h5>
                     <p class="text-gray-600 text-base mb-4">Kit com 4 peças</p>
                     <div class="flex space-x-2 items-center mb-4">
