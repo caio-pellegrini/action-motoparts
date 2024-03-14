@@ -12,7 +12,7 @@ class ProductController extends Controller
     {
         $categories = Category::with('products')->get();
         $products = Product::all(); // Obtém todos os produtos
-        return view('cardapio', compact('products', 'categories')); // Retorna a view com os produtos
+        return view('produtos', compact('products', 'categories')); // Retorna a view com os produtos
     }
 
     public function show($id)

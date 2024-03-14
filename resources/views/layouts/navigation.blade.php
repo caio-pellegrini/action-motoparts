@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="font-readex dark:bg-black border-b border-gray-100 {{ request()->routeIs('cardapio') ? 'fixed top-0 w-full z-50' : '' }}">
+<nav x-data="{ open: false }" class="font-readex dark:bg-black border-b border-gray-100 {{ request()->routeIs('produtos') ? 'fixed top-0 w-full z-50' : '' }}">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-green-700 text-white">
         <div class="flex justify-between mx-auto px-4 sm:px-6 lg:px-8 text-white">
@@ -19,13 +19,13 @@
 
             <div class="flex space-x-4  ">
                 <div>
-                    <a class="flex items-center gap-1" href="">
+                    <a class="flex items-center gap-1" href="https://web.facebook.com/ActionMotoParts/" target="_blank">
                         <img src="{{ asset('/images/facebook.svg') }}" alt="">
                         <p>action_parts</p>
                     </a>
                 </div>
                 <div>
-                    <a class="flex items-center gap-1" href="">
+                    <a class="flex items-center gap-1" href="https://www.instagram.com/actionmotoparts/" target="_blank">
                         <img src="{{ asset('/images/instagram.svg') }}" alt="">
                         <p>actionmotoparts</p>
                     </a>
@@ -147,10 +147,10 @@
                 <x-nav-link :href="route('sobre-nos')" :active="request()->routeIs('sobre-nos')">
                     {{ __('QUEM SOMOS') }}
                 </x-nav-link>
-                <x-nav-link :href="route('cardapio')" :active="request()->routeIs('cardapio')">
+                <x-nav-link :href="route('produtos')" :active="request()->routeIs('produtos')">
                     {{ __('PRODUTOS') }}
                 </x-nav-link>
-                <x-nav-link :href="route('cardapio')" :active="request()->routeIs('cardapio')">
+                <x-nav-link :href="route('produtos')" :active="request()->routeIs('produtos')">
                     {{ __('CATÁLOGO') }}
                 </x-nav-link>
                 <x-nav-link :href="route('exibircarrinho')" :active="request()->routeIs('exibircarrinho')">
