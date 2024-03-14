@@ -37,9 +37,10 @@
             </div>
         </div>
             <div class="md:flex items-center justify-center">
-                <img src="" alt="parceria alheia">
-                <img src="" alt="parceria alheia">
-                <img src="" alt="parceria alheia">
+            <img class="max-w-full px-20" src="{{asset('/images/parcerias-teste.png')}}" alt="">
+            <img class="max-w-full px-20" src="{{asset('/images/parcerias-teste.png')}}" alt="">
+            <img class="max-w-full px-20" src="{{asset('/images/parcerias-teste.png')}}" alt="">
+                <img src="" alt="">
             </div>
     </div>  
 
