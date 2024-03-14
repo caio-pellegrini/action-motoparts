@@ -32,9 +32,17 @@ Route::get('/dashboard', function () {
     return view('welcome');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/sobre-nos', function () {
-    return view('sobre-nos');
-})->name('sobre-nos');
+Route::get('/quem-somos', function () {
+    return view('quem-somos');
+})->name('quem-somos');
+
+Route::get('/catalogo', function () {
+    return view('catalogo');
+})->name('catalogo');
+
+Route::get('/contato', function () {
+    return view('contato');
+})->name('contato');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

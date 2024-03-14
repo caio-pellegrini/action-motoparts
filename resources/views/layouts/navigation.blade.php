@@ -1,17 +1,17 @@
-<nav x-data="{ open: false }" class="font-readex dark:bg-black border-b border-gray-100 {{ request()->routeIs('produtos') ? 'fixed top-0 w-full z-50' : '' }}">
+<nav x-data="{ open: false }" class="font-readex dark:bg-black border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-green-700 text-white">
         <div class="flex justify-between mx-auto px-4 sm:px-6 lg:px-8 text-white">
             <div class="flex space-x-4">
                 <div>
-                    <a class="flex items-center gap-1" href="">
+                    <a class="flex items-center gap-1 hover:text-gray-800" href="https://wa.me/send?phone=5516996464493" target="_blank">
                         <img src="{{ asset('/images/whatsapp.svg') }}" alt="">
                         <p>(16) 99646-4493</p>
                     </a>
                 </div>
                 <div>
-                    <a class="flex items-center gap-1" href="">
-                        <img src="{{ asset('/images/phone.svg') }}" alt="">
+                    <a class="flex items-center gap-1 hover:text-gray-800"" href="tel:551632429074">
+                        <img src="{{ asset('/images/phone.svg') }}" alt="" target="_blank">
                         <p>3242-9074</p>
                     </a>
                 </div>
@@ -19,13 +19,13 @@
 
             <div class="flex space-x-4  ">
                 <div>
-                    <a class="flex items-center gap-1" href="https://web.facebook.com/ActionMotoParts/" target="_blank">
+                    <a class="flex items-center gap-1 hover:text-gray-800"" href="https://web.facebook.com/ActionMotoParts/" target="_blank">
                         <img src="{{ asset('/images/facebook.svg') }}" alt="">
                         <p>action_parts</p>
                     </a>
                 </div>
                 <div>
-                    <a class="flex items-center gap-1" href="https://www.instagram.com/actionmotoparts/" target="_blank">
+                    <a class="flex items-center gap-1 hover:text-gray-800"" href="https://www.instagram.com/actionmotoparts/" target="_blank">
                         <img src="{{ asset('/images/instagram.svg') }}" alt="">
                         <p>actionmotoparts</p>
                     </a>
@@ -134,20 +134,24 @@
         <div class="flex justify-center items-center h-8">
             <!-- Navigation Links -->
             <div class="hidden space-x-8 sm:flex">
-                <x-nav-link class="text-lg" :href="route('/')" :active="request()->routeIs('/')">
+                <x-nav-link :href="route('/')" :active="request()->routeIs('/')">
                     {{ __('INÍCIO') }}
                 </x-nav-link>
-                <x-nav-link :href="route('sobre-nos')" :active="request()->routeIs('sobre-nos')">
+                <x-nav-link :href="route('quem-somos')" :active="request()->routeIs('quem-somos')">
                     {{ __('QUEM SOMOS') }}
                 </x-nav-link>
                 <x-nav-link :href="route('produtos')" :active="request()->routeIs('produtos')">
                     {{ __('PRODUTOS') }}
                 </x-nav-link>
-                <x-nav-link :href="route('produtos')" :active="request()->routeIs('produtos')">
+                <x-nav-link :href="route('catalogo')" :active="request()->routeIs('catalogo')">
                     {{ __('CATÁLOGO') }}
                 </x-nav-link>
-                <x-nav-link :href="route('exibircarrinho')" :active="request()->routeIs('exibircarrinho')">
+                <x-nav-link :href="route('contato')" :active="request()->routeIs('contato')">
                     {{ __('CONTATO') }}
+                </x-nav-link>
+
+                <x-nav-link :href="route('exibircarrinho')" :active="request()->routeIs('exibircarrinho')">
+                    {{ __('CARRINHO') }}
 
 
                     @if(\Cart::getContent()->count() != '0')

@@ -1,35 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<x-app-layout>
+    <x-slot name="title">Checkout | Cafuné</x-slot>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Checkout | Cafuné</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <!-- Styles -->
+    @section('aditional-head')
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-    <style>
-
-    </style>
-
-</head>
-
-<body class="antialiased">
-    @include('layouts.navigation')
-
+    @endsection
 
     <div class="sm:justify-center sm:items-center relative min-h-screen bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
@@ -39,7 +13,7 @@
             <input type="hidden" name="total" value="{{ \Cart::getTotal() }}">
             <input type="hidden" name="user_id" value="{{ $user->id }}">
             <input type="hidden" name="order_items" value="{{ \Cart::getContent() }}">
-            
+
 
             <div class="py-12">
                 <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -58,10 +32,10 @@
                             </div>
                             @endforeach
                             {{-- Título e Botão para Retornar ao Carrinho --}}
-            <a href="{{ route('exibircarrinho') }}" class=" mt-4 inline-flex items-center px-4 py-2 bg-cafune border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-verde-escuro dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
-          <span class="material-symbols-outlined material-google mr-1">arrow_back</span>  
-          Voltar para Carrinho
-          </a>
+                            <a href="{{ route('exibircarrinho') }}" class=" mt-4 inline-flex items-center px-4 py-2 bg-cafune border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-verde-escuro dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                                <span class="material-symbols-outlined material-google mr-1">arrow_back</span>
+                                Voltar para Carrinho
+                            </a>
                         </div>
                         <div class="p-8 bg-white shadow rounded-lg">
                             {{-- Seção 'Informações do Cliente' --}}
@@ -84,7 +58,7 @@
                                                 </a>
                                             </span>
                                             <span class="block sm:inline">{{ __(' para prosseguir com o pedido.') }}</span>
- 
+
                                         </div>
                                     </div>
                                     @endif
@@ -111,7 +85,7 @@
 
                             <h2 class="text-xl font-semibold mb-2">Opções de Entrega</h2>
                             <label>
-                                <input type="radio" name="delivery_option" value="pickup" checked >
+                                <input type="radio" name="delivery_option" value="pickup" checked>
                                 Retirada
                             </label>
                             <br>
@@ -154,7 +128,7 @@
                                 <p class="flex justify-between items-center">
                                     <span>Total: </span>
                                     <span>R$ {{ number_format(\Cart::getTotal(), 2, ',', '.') }}</span>
-                                    
+
                                 </p>
                                 <hr>
                                 <p class="flex justify-between items-center">
@@ -170,15 +144,14 @@
 
 
                             {{-- Botão 'Finalizar Pedido' --}}
-                            <button id="finalizar-pedido"
-                            @if(auth()->check() && auth()->user()->hasVerifiedEmail())
+                            <button id="finalizar-pedido" @if(auth()->check() && auth()->user()->hasVerifiedEmail())
                                 type="submit"
-                            @else
+                                @else
                                 type="button"
-                            @endif
-                            class="mt-4 inline-flex items-center px-4 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-900 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
-                            <span class="material-symbols-outlined material-google mr-1">check</span>  
-                            Finalizar Pedido
+                                @endif
+                                class="mt-4 inline-flex items-center px-4 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-900 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                                <span class="material-symbols-outlined material-google mr-1">check</span>
+                                Finalizar Pedido
                             </button>
                         </div>
 
@@ -186,67 +159,63 @@
                 </div>
             </div>
 
-
         </form>
-
-
-
     </div>
 
+    <x-slot name="scripts">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const paymentMethodSelect = document.getElementById('payment_method');
+                const cardInfoDiv = document.getElementById('card_info');
+                const paymentMethodSummary = document.getElementById('payment_method_summary');
+                paymentMethodSummary.innerText = 'Pix';
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const paymentMethodSelect = document.getElementById('payment_method');
-            const cardInfoDiv = document.getElementById('card_info');
-            const paymentMethodSummary = document.getElementById('payment_method_summary');
-            paymentMethodSummary.innerText = 'Pix';
+                paymentMethodSelect.addEventListener('change', function() {
+                    if (this.value === 'debit_card') {
+                        cardInfoDiv.style.display = 'block';
+                        paymentMethodSummary.innerText = 'Cartão de Débito';
 
-            paymentMethodSelect.addEventListener('change', function() {
-                if (this.value === 'debit_card') {
-                    cardInfoDiv.style.display = 'block';
-                    paymentMethodSummary.innerText = 'Cartão de Débito';
+                    } else if (this.value === 'credit_card') {
+                        cardInfoDiv.style.display = 'block';
+                        paymentMethodSummary.innerText = 'Cartão de Crédito';
 
-                } else if (this.value === 'credit_card') {
-                    cardInfoDiv.style.display = 'block';
-                    paymentMethodSummary.innerText = 'Cartão de Crédito';
+                    } else {
+                        cardInfoDiv.style.display = 'none';
+                    }
+                });
 
-                } else {
-                    cardInfoDiv.style.display = 'none';
-                }
             });
 
-        });
-        function updateDeliverySummary() {
-        var deliveryOptions = document.getElementsByName('delivery_option');
-        var selectedOption = 'Retirada'; // Valor padrão
+            function updateDeliverySummary() {
+                var deliveryOptions = document.getElementsByName('delivery_option');
+                var selectedOption = 'Retirada'; // Valor padrão
 
-        for(var i = 0; i < deliveryOptions.length; i++) {
-            if(deliveryOptions[i].checked) {
-                selectedOption = deliveryOptions[i].value === 'pickup' ? 'Retirada' : 'Delivery';
-                break;
+                for (var i = 0; i < deliveryOptions.length; i++) {
+                    if (deliveryOptions[i].checked) {
+                        selectedOption = deliveryOptions[i].value === 'pickup' ? 'Retirada' : 'Delivery';
+                        break;
+                    }
+                }
+
+                document.getElementById('delivery_options_summary').textContent = selectedOption;
             }
-        }
 
-        document.getElementById('delivery_options_summary').textContent = selectedOption;
-    }
+            // Adicionando event listeners aos botões de rádio
+            var deliveryOptions = document.getElementsByName('delivery_option');
+            for (var i = 0; i < deliveryOptions.length; i++) {
+                deliveryOptions[i].addEventListener('change', updateDeliverySummary);
+            }
 
-    // Adicionando event listeners aos botões de rádio
-    var deliveryOptions = document.getElementsByName('delivery_option');
-    for(var i = 0; i < deliveryOptions.length; i++) {
-        deliveryOptions[i].addEventListener('change', updateDeliverySummary);
-    }
+            document.getElementById('finalizar-pedido').addEventListener('click', function(event) {
+                @if(auth() -> check() && !auth() -> user() -> hasVerifiedEmail())
+                event.preventDefault();
+                alert('Por favor, verifique seu e-mail para finalizar o pedido.');
+                @elseif(auth()->guest())
+                event.preventDefault();
+                alert('Por favor, autentique-se para finalizar seu pedido.');
+                @endif
+            });
+        </script>
+    </x-slot>
 
-        document.getElementById('finalizar-pedido').addEventListener('click', function(event) {
-        @if(auth()->check() && !auth()->user()->hasVerifiedEmail())
-            event.preventDefault();
-            alert('Por favor, verifique seu e-mail para finalizar o pedido.');
-        @elseif(auth()->guest())
-            event.preventDefault();
-            alert('Por favor, autentique-se para finalizar seu pedido.');
-        @endif
-    });
-    </script>
-
-</body>
-
-</html>
+</x-app-layout>
