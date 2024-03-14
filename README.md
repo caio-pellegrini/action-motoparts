@@ -16,8 +16,10 @@ Para começar com o 'Projeto Padaria Cafuné':
 
    ``` git clone https://github.com/caio-pellegrini/projeto-cafune-patisserie.git ```
 2. Instale as dependências necessárias:
-``` composer install ```
-3. Configure o ambiente no arquivo ``` .env ```
+   ``` composer install ```
+3. Instale os módulos do node
+   ``` npm install ```
+4. Configure o ambiente no arquivo ``` .env ```
 
    
 ## Uso

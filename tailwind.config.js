@@ -16,18 +16,21 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 lateef: ['Lateef', 'serif'],
-                aurore: ['La Belle Aurore', 'cursive']
+                aurore: ['La Belle Aurore', 'cursive'],
+                readex: ['Readex Pro', 'sans-serif'],
             },
 
             backgroundColor: {
                 'cafune-transparente': '#8190A0CC',
                 'cafune': '#019a2d',
-                'azur': '#2C2B4C',
+                'verde-escuro': '#045D21',
+                'cinza-header': '#C1C1C1',
+                'verde-cinza': '#487858',
             },
 
             colors:
              {
-                'azur': '#2C2B4C',
+                'verde-escuro': '#045D21',
             },
         },
     },
