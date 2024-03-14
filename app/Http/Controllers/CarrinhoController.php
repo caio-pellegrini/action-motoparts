@@ -28,7 +28,7 @@ class CarrinhoController extends Controller
             ]
         ]);
 
-        return redirect()->route('cardapio')->with('adicionado', $request->id);
+        return redirect()->route('produtos')->with('adicionado', $request->id);
     }
 
     public function removeCarrinho(Request $request)

@@ -16,19 +16,18 @@
             </div>
         </div>
 
-        <div class="md:flex items-center justify-center mt-[50px] p-[20px] mb-20 px-8 sm:wrap">
-            <img class="max-w-full px-20" src="{{asset('/images/action-auto-pecas.jpg')}}" alt="">
+        <div class="md:flex items-center justify-center mt-20 p-5 mb-20 space-x-[-100px]">
+            <img class="max-w-full px-20 rounded-lg" src="{{asset('/images/uniforme-imagem.png')}}" alt="">
         <div class="px-24">
                 <h3 class="text-[35px] text-red-500 mb-4">
                     Action Distribuidora</h3>
                 <p class="text-md">Analisando a tipografia da logo da Action Moto Parts, podemos notar algumas características:
-- *Estilo da Fonte*: A fonte usada para "ACTION" é em estilo sans-serif, o que é evidenciado pela ausência de pequenos traços no final das letras. As sans-serifs são conhecidas por sua legibilidade e são frequentemente usadas em contextos modernos e digitais.
-- *Peso e Impacto*: A palavra "ACTION" está em caixa alta (maiúsculas) com um peso de fonte grosso ou negrito, o que confere um impacto visual forte e comunica uma sensação de solidez e confiança.
-</p>
+                    - *Estilo da Fonte*: A fonte usada para "ACTION" é em estilo sans-serif, o que é evidenciado pela ausência de pequenos traços no final das letras. As sans-serifs são conhecidas por sua legibilidade e são frequentemente usadas em contextos modernos e digitais.
+                    - *Peso e Impacto*: A palavra "ACTION" está em caixa alta (maiúsculas) com um peso de fonte grosso ou negrito, o que confere um impacto visual forte e comunica uma sensação de solidez e confiança.
+                </p>
             </div>
         </div>
-
-        <div class="md:flex items-center justify-center mt-[90px]">
+        <div class="md:flex items-center justify-center mt-40">
             <div class="px-24">
                 <h2 class="text-[40px] text-red-500 px-40">
                     PARCERiAS</h2>
