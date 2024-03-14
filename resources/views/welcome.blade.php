@@ -1,20 +1,12 @@
 <x-app-layout>
-    <x-slot name="title">Cafuné Pâtisserie</x-slot>
+    <x-slot name="title">Action Motoparts</x-slot>
 
+    <div class="relative w-full overflow-hidden mb-auto sm:h-[60vh] -mt-px">
+        <img class="w-full h-full object-cover"src="{{asset('/images/banner_home.png')}}">
+        </img>
+    </div>
     <div class="container">
 
-        <div class="relative w-full overflow-hidden mb-auto sm:h-[60vh] -mt-px">
-            <div class="absolute w-full h-full bg-black opacity-60"></div>
-            <video class="w-full h-full object-cover" autoplay muted loop>
-                <source src="{{asset('/home/video.mp4')}}" type="video/mp4">
-            </video>
-
-            <div class="absolute top-1/2 w-full left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <p class="font-arial text-green-500 text-center text-3xl md:text-5xl">
-                    Action Moto Parts
-                </p>
-            </div>
-        </div>
 
         <div class="md:flex items-center justify-center mt-20 p-5 mb-20 space-x-[-100px]">
             <img class="max-w-full px-20 rounded-lg" src="{{asset('/images/uniforme-imagem.png')}}" alt="">
