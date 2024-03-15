@@ -2,7 +2,7 @@
   <x-slot name="title">Produtos | Action Moto Parts</x-slot>
 
   <div class="relative w-full overflow-hidden mb-auto sm:h-[60vh] -mt-px p-8">
-    <img class="w-full h-full object-contain" src="{{asset('/images/banner_produtos.jpg')}}" type="">
+    <img class="w-full h-full object-contain" src="{{asset('/images/banner_produtos.png')}}" type="">
     </img>
   </div>
   <h2 class="flex items-center justify-center mt-6 text-3xl p-8">MAIS VENDIDOS</h2>

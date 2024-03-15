@@ -39,6 +39,7 @@
         </div>
         @endif
 
+
         <!-- Page Content -->
         <main>
             {{ $slot }}
