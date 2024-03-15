@@ -1,4 +1,6 @@
-INSERT INTO Categoria (categoria)
+USE action;
+
+INSERT INTO categories (name)
 VALUES 
 ( 'Café'),
 ('Bebidas'),
@@ -7,7 +9,6 @@ VALUES
 ('Salgados'),
 ( 'Doces'),
 ('Tortas');
-
 
 
 INSERT INTO products (category_id, name, description, price, unit_of_measure, product_image)

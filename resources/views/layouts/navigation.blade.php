@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" class="font-readex border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-green-700 text-white">
-        <div class="flex justify-between mx-auto px-4 sm:px-6 lg:px-8 text-white">
+    <div class="hidden sm:block mx-auto px-4 sm:px-6 lg:px-8 bg-green-700 text-white">
+        <div class="flex justify-between mx-auto px-2 sm:px-4 md:px-6 lg:px-8 text-white">
             <div class="flex space-x-4">
                 <div>
                     <a class="flex items-center gap-1 hover:text-gray-800" href="https://wa.me/send?phone=5516996464493" target="_blank">
@@ -37,7 +37,7 @@
     <!-- Primary Navigation Menu -->
     <div class="mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <div class="mx-auto px-4 sm:px-6 lg:px-8 ">
-            <div class="flex justify-between h-16">
+            <div class="flex justify-center items-center h-20   ">
 
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- Search Bar -->
-                <div class="flex-grow my-3">
+                <div class="grow my-3 px-6">
                     <div class="max-w-xl mx-auto flex items-center justify-between bg-cinza-search py-1 px-2 rounded-lg">
                         <p class="text-gray-500">Olá, o que você procura?</p>
                         <img src="{{ asset('/images/lupa-icon.svg') }}" alt="">
@@ -145,8 +145,8 @@
 
 
 
-    <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-cinza-header text-white border-b-[3px] border-verde-escuro">
-        <div class="flex justify-center items-center h-8">
+    <div class="mx-auto px-2 sm:px-4 lg:px-8 bg-cinza-header text-white border-b-[3px] border-verde-escuro">
+        <div class="flex justify-center items-center h-6 sm:h-8">
             <!-- Navigation Links -->
             <div class="hidden space-x-8 sm:flex">
                 <x-nav-link :href="route('/')" :active="request()->routeIs('/')">
@@ -164,8 +164,6 @@
                 <x-nav-link :href="route('contato')" :active="request()->routeIs('contato')">
                     {{ __('CONTATO') }}
                 </x-nav-link>
-
-
             </div>
         </div>
     </div>
@@ -187,21 +185,24 @@
 
 
 
-
-
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('HOME') }}
+            <x-responsive-nav-link :href="route('/')" :active="request()->routeIs('/')">
+                {{ __('INÍCIO') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('SOBRE NÓS') }}
+            <x-responsive-nav-link :href="route('quem-somos')" :active="request()->routeIs('quem-somos')">
+                {{ __('QUEM SOMOS') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('CARDÁPIO') }}
+            <x-responsive-nav-link :href="route('produtos')" :active="request()->routeIs('produtos')">
+                {{ __('PRODUTOS') }}
             </x-responsive-nav-link>
-
+            <x-responsive-nav-link :href="route('catalogos')" :active="request()->routeIs('catalogos')">
+                {{ __('CATÁLOGOS') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('contato')" :active="request()->routeIs('contato')">
+                {{ __('CONTATO') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -216,7 +217,11 @@
 
                 <div class="mt-3 space-y-1">
                     <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Meu Perfil') }}
+                        {{ __('MEU PERFIL') }}
+                    </x-responsive-nav-link>
+
+                    <x-responsive-nav-link :href="route('pedidos')">
+                        {{ __('MEUS PEDIDOS') }}
                     </x-responsive-nav-link>
 
                     <!-- Authentication -->
@@ -231,11 +236,14 @@
                 </div>
             </div>
             @else
-            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ENTRAR</a>
 
             @if (Route::has('register'))
             <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">CADASTRE-SE</a>
             @endif
+
+            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ENTRAR</a>
+
+
             @endauth
         </div>
         @endif
