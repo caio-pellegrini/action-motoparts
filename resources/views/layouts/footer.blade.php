@@ -13,7 +13,7 @@
 
             
             <div class="w-full md:w-1/3 mb-4 md:mb-0 text-right">
-                <a target="_blank" class="hover:text-blue-900" href="https://www.google.com/maps/dir//Av.+Sete+de+Setembro,+1695+-+Alto+da+XV,+Curitiba+-+PR,+80060-070/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x94dce4450e30585f:0x29b40cfe93eeef8e?sa=X&ved=2ahUKEwig-6_Th-eCAxUbtJUCHdhUCzoQwwV6BAgLEAA">
+                <a target="_blank" class="hover:text-lime-300" href="https://www.google.com/maps/place/Action+Moto+Parts+MOTOPE%C3%87AS/@-21.2590084,-48.5095366,817m/data=!3m1!1e3!4m14!1m7!3m6!1s0x94b945dee875bef1:0x2edfaee42e9395de!2sAction+Moto+Parts+MOTOPE%C3%87AS!8m2!3d-21.2590135!4d-48.5046657!16s%2Fg%2F11shpdy0qn!3m5!1s0x94b945dee875bef1:0x2edfaee42e9395de!8m2!3d-21.2590135!4d-48.5046657!16s%2Fg%2F11shpdy0qn?entry=ttu">
                     <p>Rua Jose Oliver Filho, 270</p> 
                     <p>Jardim Bela Vista</p>
                     <p>Monte Alto - SP, 15910-000</p>
@@ -47,7 +47,6 @@
         </div>
         <div class="text-center py-2 border-t border-gray-300 mt-4">
             <p>© 2024 | Todos Os Direitos Reservados.</p>
-            <!-- Logo da empresa desenvolvedora -->
             <a href="#">
                 <img src="{{ asset('/images/logo-fusion.png') }}" alt="FUSION" class="h-11 mx-auto justify-center">
             </a>
