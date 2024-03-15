@@ -44,24 +44,24 @@
         <div class="flex justify-between items-center p-4 mt-12">
     <div class="text-2xl font-bold">Valor Total: R$455,70</div>
     <div class="flex space-x-8">
-        <button class="flex items-center text-white bg-gray-500 hover:bg-green-600 py-2 px-4 rounded-lg">
+        <a href="{{ route('produtos') }}" class="flex items-center text-white bg-gray-500 hover:bg-green-600 py-2 px-4 rounded-lg">
             <svg width="20px" height="20px" viewBox="-6 -6 36.00 36.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" class="mr-2">
             <path d="M7.68473 7.33186C8.07526 6.94134 8.07526 6.30817 7.68473 5.91765C7.29421 5.52712 6.66105 5.52712 6.27052 5.91765L1.60492 10.5832C0.823873 11.3643 0.823872 12.6306 1.60492 13.4117L6.27336 18.0801C6.66388 18.4706 7.29705 18.4706 7.68757 18.0801C8.0781 17.6896 8.0781 17.0564 7.68757 16.6659L4.02154 12.9998L22 12.9998C22.5523 12.9998 23 12.5521 23 11.9998C23 11.4476 22.5523 10.9998 22 10.9998L4.01675 10.9998L7.68473 7.33186Z" fill="#ffffff"></path>
             </svg>
             <span>CONTINUAR COMPRANDO</span>
-        </button>
-        <button class="flex items-center text-white bg-red-500 hover:bg-red-600 py-2 px-4 rounded-lg">
+        </a>
+        <a class="flex items-center text-white bg-red-500 hover:bg-red-600 py-2 px-4 rounded-lg">
             <svg width="20px" height="20px" viewBox="-7.75 -7.75 40.50 40.50" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
             <path d="M19 5L5 19M5.00001 5L19 19" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
             <span>LIMPAR CARRINHO</span>
-        </button>
-        <button class="flex items-center text-white bg-green-700 hover:bg-green-800 py-2 px-4 rounded-lg">
+        </a>
+        <a href="{{ route('listarCheckout') }}" class="flex items-center text-white bg-green-700 hover:bg-green-800 py-2 px-4 rounded-lg">
             <svg width="20px" height="20px" viewBox="-3.12 -3.12 30.24 30.24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
             <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
             <span>FINALIZAR PEDIDO</span>
-        </button>
+        </a>
     </div>
 </div>
 
