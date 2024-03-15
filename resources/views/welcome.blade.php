@@ -3,36 +3,22 @@
 
     @section('aditional-head')
     <style>
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        /* CSS para esconder e preparar para animação */
+        .animate-prep-slideInLeft {
+            opacity: 0;
+            transform: translateX(-100%);
         }
 
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        .animate-prep-slideInRight {
+            opacity: 0;
+            transform: translateX(100%);
         }
 
-        .animate-slideInLeft {
-            animation: slideInLeft 1s ease-out forwards;
-        }
-
-        .animate-slideInRight {
-            animation: slideInRight 1s ease-out forwards;
+        /* CSS para animar para o estado visível */
+        .animate-active {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 1s, transform 1s;
         }
     </style>
     @endsection
@@ -42,8 +28,8 @@
     </div>
 
     <div class="md:flex items-center justify-center my-24 pb-14 px-32 space-x-20">
-        <img class="w-80 animate-slideInLeft" src="{{asset('/images/uniforme-imagem.png')}}" alt="">
-        <div class="animate-slideInRight">
+        <img id="uniformeImage" class="w-80 animate-prep-slideInLeft" src="{{asset('/images/uniforme-imagem.png')}}" alt="">
+        <div id="actionText" class="animate-prep-slideInRight">
             <h3 class="text-[35px] text-green-500 mb-4">Action Distribuidora</h3>
             <p class="text-md">Nós atuamos no mercado de distribuição de peças para motos à mais de 34 anos e temos em nosso leque de produtos atualmente mais de 16 mil itens entre produtos nacionais e importados, somos considerados um dos maiores atacadistas de peças para motos do país. Contamos com sede própria localizada em Guarulhos, a Montanna Distribuidora de Motopeças alcança todo território nacional, por meio de suas filiais em pontos estratégicos, bem como seus representantes comerciais e revendas parceiras.
             </p>
@@ -69,5 +55,32 @@
     </div>
 
     <x-slot name="footer"></x-slot>
+
+    <x-slot name="scripts">
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const observerOptions = {
+                    root: null, // Usa o viewport como área de visão
+                    threshold: 0.1, // Dispara quando 10% do elemento está visível
+                };
+
+                const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-active');
+                        }
+                    });
+                };
+
+                const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+                // Adiciona os elementos a serem observados
+                const elementsToAnimate = document.querySelectorAll('.animate-prep-slideInLeft, .animate-prep-slideInRight');
+                elementsToAnimate.forEach(element => {
+                    observer.observe(element);
+                });
+            });
+        </script>
+    </x-slot>
 
 </x-app-layout>
