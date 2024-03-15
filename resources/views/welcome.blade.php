@@ -36,8 +36,8 @@
         </div>
     </div>
 
-    <a href="/produtos" class="relative w-full overflow-hidden mb-auto sm:h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh]">
-        <img class="w-full h-full object-contain" src="{{asset('/images/banner_home2.png')}}"></img>
+    <a href="/produtos" class="relative w-full overflow-hidden mb-auto sm:h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh] ">
+        <img class="w-full h-full object-contain hover:scale-[1.03] ease-in-out transform transition-transform duration-300" src="{{asset('/images/banner_home2.png')}}"></img>
     </a>
 
     <div class="md:flex items-center justify-center mt-40">
