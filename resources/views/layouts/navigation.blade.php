@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="font-readex dark:bg-black border-b border-gray-100">
+<nav x-data="{ open: false }" class="font-readex border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto px-4 sm:px-6 lg:px-8 bg-green-700 text-white">
         <div class="flex justify-between mx-auto px-4 sm:px-6 lg:px-8 text-white">
