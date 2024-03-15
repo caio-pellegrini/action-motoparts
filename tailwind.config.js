@@ -27,6 +27,8 @@ export default {
                 'cinza-header': '#C1C1C1',
                 'verde-cinza': '#487858',
                 'cinza-search': '#D9D9D9',
+                'cor-produtos': '#f3f4f6',
+
             },
 
             colors:

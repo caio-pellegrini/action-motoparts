@@ -1,188 +1,71 @@
 <x-app-layout>
-
     <x-slot name="title">Carrinho | Action Moto Parts</x-slot>
-
-    @section('aditional-head')
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings:
-                'FILL' 1,
-                'wght' 600,
-                'GRAD' 0,
-                'opsz' 24
-        }
-
-        .material-google {
-            color: white;
-        }
-    </style>
-    @endsection
-
-    <div class="sm:justify-center sm:items-center relative min-h-screen bg-center bg-gray-100">
-        @if ($mensagem = Session::get('sucesso'))
-        <script>
-            showPopupMessage("{{ $mensagem }}", 3000);
-        </script>
-        @endif
-
-        @if ($mensagem = Session::get('sucesso'))
-        <div id="alert-3" class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
-                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
-            </svg>
-            <span class="sr-only">Success</span>
-            <div class="ms-3 text-sm font-medium">
-                {{ $mensagem }}
-            </div>
-            <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">
-                <span class="sr-only">Close</span>
-                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                </svg>
-            </button>
-        </div>
-        @endif
-
-        <div class="sm:justify-center sm:items-center relative min-h-screen bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            <div class="py-12">
-
-                @if($itens->count() == 0)
-                <div class="card blue">
-                    <div class="card-content white-text">
-                        <span class="card-title">Seu carrinho está vazio</span>
-                        <p>Aproveite nossas promoções</p>
-                    </div>
-                </div>
-
-
-                @else
-                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                    {{ __('Seu carrinho possui '). $itens->count() .__(' itens.') }}
-                </h2>
-
-
-                <div class="px-12 mx-auto">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Nome</th>
-                                <th>Preço</th>
-                                <th>Quantidade</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach ($itens as $item)
-                            <tr>
-                                <td><img src="{{ asset('storage/' . $item->attributes->image) }}" alt="{{ $item->name }}" class="h-14 w-14 rounded-full object-cover"></td>
-                                <td>{{ $item->name }}</td>
-                                <td>R$ {{ number_format($item->price, 2, ',', '.') }}/{{ $item->attributes->unit_of_measure }}</td>
-                                {{-- BTN ATUALIZAR --}}
-                                <form action="{{ route('atualizacarrinho') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                    <td><input style="width: 50px; font-weight: 900;" class="white center quantity-input" type="number" min="1" name="quantity" value="{{ $item->quantity }}"></td>
-                                </form>
-                                <td>
-
-
-                                    {{-- BTN DELETAR --}}
-                                    <form action="{{ route('removecarrinho') }}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $item->id }}">
-                                        <button class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <p class="font-bold">Valor Total: R$ {{ number_format(\Cart::getTotal(), 2, ',', '.') }}</p>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-
-                <div class="row container center mt-5 space-x-5">
-
-                    <a href="{{ route('cardapio') }}" class="inline-flex items-center px-4 py-2 bg-cafune border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-azur dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
-                        <span class="material-symbols-outlined material-google mr-1">arrow_back</span>
-                        Continuar comprando
-                    </a>
-
-                    <a href="{{ route('limpacarrinho') }}" class="inline-flex items-center px-4 py-2 bg-cafune border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-azur dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
-                        <span class="material-symbols-outlined material-google mr-1">clear</span>
-                        Limpar carrinho
-                    </a>
-
-                    <a id="finalizar-pedido" @auth href="{{ route('listarCheckout') }}" @endauth class="inline-flex items-center px-4 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-900 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
-                        <span class="material-symbols-outlined material-google mr-1">check</span>
-                        Finalizar Pedido
-                    </a>
-
-                </div>
-
-                @endif
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <x-slot name="scripts">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var quantityInputs = document.querySelectorAll('.quantity-input');
-
-                quantityInputs.forEach(function(input) {
-                    input.addEventListener('change', function() {
-                        this.form.submit();
-                    })
-                });
-
-            });
-
-            function showPopupMessage(message, duration = 5000) {
-                const popup = document.getElementById('popup-message');
-                const content = document.getElementById('popup-message-content');
-
-                // Set the message
-                content.textContent = message;
-
-                // Show the popup
-                popup.classList.remove('hidden');
-
-                // Set a timer to hide the popup after 'duration' milliseconds
-                setTimeout(() => {
-                    popup.classList.add('hidden');
-                }, duration);
-            }
-
-            document.getElementById('finalizar-pedido').addEventListener('click', function(event) {
-                @guest
-                event.preventDefault();
-                alert('Por favor, autentique-se para finalizar seu pedido.');
-                @endguest
-            });
-        </script>
+    <x-slot name="header">
+        {{ ('SEU CARRINHO TEM 6 ITENS') }}
     </x-slot>
 
+    <div class="container mx-auto mt-8 p-8 m-8 space-y-12">
+        <div class="flex flex-col">
+            <div class="flex justify-between items-center p-4 border-b">
+                <div class="flex items-center">
+                    <img class="h-20 w-20 object-cover" src="/images/produto4.png" alt="Conjunto Desempenho | Misto">
+                    <div class="ml-4">
+                        <div class="text-xl font-bold">Cabo Embreagem, Freio e Acelerador</div>
+                        <div class="text-sm">Kit com 3 unidades</div>
+                    </div>
+                </div>
+                <div class="text-xl font-bold">R$67,90</div>
+                <div class="flex items-center">
+                    <input type="number" class="w-12 text-center border rounded px-2 py-1 mr-2" value="3">
+                    <svg class="fill-current text-gray-500 w-4 h-4 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M14.348 14.859a.5.5 0 0 1-.707 0l-4.646-4.647-4.646 4.647a.5.5 0 1 1-.707-.707l4.646-4.647-4.646-4.647a.5.5 0 1 1 .707-.707l4.646 4.647 4.646-4.647a.5.5 0 1 1 .707.707l-4.646 4.647 4.646 4.647a.5.5 0 0 1 0 .707z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <div class="flex justify-between items-center p-4 border-b">
+                <div class="flex items-center">
+                    <img class="h-20 w-20 object-cover" src="/images/produto7.png" alt="Conjunto Desempenho | Misto">
+                    <div class="ml-4">
+                        <div class="text-xl font-bold">Conjunto Desempenho | Misto</div>
+                        <div class="text-sm text-gray-600">Óleo 20W50, Kit Relação Riffel, Pneu Dianteiro 90/90</div>
+                    </div>
+                </div>
+                <div class="text-xl font-bold">R$252,00</div>
+                <div class="flex items-center">
+                    <input type="number" class="w-12 text-center border rounded px-2 py-1 mr-2" value="3">
+                    <svg class="fill-current text-gray-500 w-4 h-4 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M14.348 14.859a.5.5 0 0 1-.707 0l-4.646-4.647-4.646 4.647a.5.5 0 1 1-.707-.707l4.646-4.647-4.646-4.647a.5.5 0 1 1 .707-.707l4.646 4.647 4.646-4.647a.5.5 0 1 1 .707.707l-4.646 4.647 4.646 4.647a.5.5 0 0 1 0 .707z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center p-4 mt-12">
+    <div class="text-2xl font-bold">Valor Total: R$455,70</div>
+    <div class="flex space-x-8">
+        <button class="flex items-center text-white bg-gray-500 hover:bg-green-600 py-2 px-4 rounded-lg">
+            <svg width="20px" height="20px" viewBox="-6 -6 36.00 36.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" class="mr-2">
+            <path d="M7.68473 7.33186C8.07526 6.94134 8.07526 6.30817 7.68473 5.91765C7.29421 5.52712 6.66105 5.52712 6.27052 5.91765L1.60492 10.5832C0.823873 11.3643 0.823872 12.6306 1.60492 13.4117L6.27336 18.0801C6.66388 18.4706 7.29705 18.4706 7.68757 18.0801C8.0781 17.6896 8.0781 17.0564 7.68757 16.6659L4.02154 12.9998L22 12.9998C22.5523 12.9998 23 12.5521 23 11.9998C23 11.4476 22.5523 10.9998 22 10.9998L4.01675 10.9998L7.68473 7.33186Z" fill="#ffffff"></path>
+            </svg>
+            <span>CONTINUAR COMPRANDO</span>
+        </button>
+        <button class="flex items-center text-white bg-red-500 hover:bg-red-600 py-2 px-4 rounded-lg">
+            <svg width="20px" height="20px" viewBox="-7.75 -7.75 40.50 40.50" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+            <path d="M19 5L5 19M5.00001 5L19 19" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span>LIMPAR CARRINHO</span>
+        </button>
+        <button class="flex items-center text-white bg-green-700 hover:bg-green-800 py-2 px-4 rounded-lg">
+            <svg width="20px" height="20px" viewBox="-3.12 -3.12 30.24 30.24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+            <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span>FINALIZAR PEDIDO</span>
+        </button>
+    </div>
+</div>
+
+
+    </div>
+    <x-slot name="footer"></x-slot>
 </x-app-layout>
