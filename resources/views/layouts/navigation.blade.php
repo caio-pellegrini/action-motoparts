@@ -48,11 +48,16 @@
 
                 <!-- Search Bar -->
                 <div class="grow my-3 px-6">
-                    <div class="max-w-xl mx-auto flex items-center justify-between bg-cinza-search py-1 px-2 rounded-lg">
-                        <p class="text-gray-500">Olá, o que você procura?</p>
-                        <img src="{{ asset('/images/lupa-icon.svg') }}" alt="">
-                    </div>
+                    <form action="">
+                        <div class="max-w-xl mx-auto flex items-center bg-cinza-search rounded-lg">
+                            <input type="search" placeholder="Olá, o que você procura?" class="w-full bg-transparent text-gray-500 border-none focus:outline-none focus:ring-0 focus:border-none py-1 pl-2" />
+                            <button type="submit" class="p-2">
+                                <img src="{{ asset('/images/lupa-icon.svg') }}" alt="Buscar">
+                            </button>
+                        </div>
+                    </form>
                 </div>
+
 
                 <!-- Settings Dropdown -->
                 @if (Route::has('login'))
@@ -69,11 +74,11 @@
                             </div>
 
 
-                            
+
                             <span class="bg-verde-escuro text-white text-xs mr-2 px-1.5 py-px rounded-full -mt-5">
                                 6
                             </span>
-                            
+
                         </x-nav-link>
 
                         <x-dropdown align="right" width="48">
