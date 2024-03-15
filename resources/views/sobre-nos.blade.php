@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <x-slot name="title">Sobre Nós | Cafuné</x-slot>
+    <x-slot name="title">QUEM SOMOS</x-slot>
 
     <div class="font-readex text-[#333]"> 
 
