@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="title">Meus pedidos | Cafuné</x-slot>
+    <x-slot name="title">Meus Pedidos | Action Moto Parts</x-slot>
 
     <div class="sm:justify-center sm:items-center relative min-h-screen">
 

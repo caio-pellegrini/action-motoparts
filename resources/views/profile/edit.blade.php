@@ -1,9 +1,7 @@
 <x-app-layout>
-    <x-slot name="title">Perfil | Cafuné</x-slot>
+    <x-slot name="title">Meu Perfil | Action Moto Parts</x-slot>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Meu Perfil') }}
-        </h2>
+            {{ __('MEU PERFIL') }}
     </x-slot>
     <div class="py-12">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">

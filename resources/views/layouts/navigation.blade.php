@@ -91,7 +91,7 @@
 
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('profile.edit')">
-                                    {{ __('PERFIL') }}
+                                    {{ __('MEU PERFIL') }}
 
                                 </x-dropdown-link>
 
@@ -158,8 +158,8 @@
                 <x-nav-link :href="route('produtos')" :active="request()->routeIs('produtos')">
                     {{ __('PRODUTOS') }}
                 </x-nav-link>
-                <x-nav-link :href="route('catalogo')" :active="request()->routeIs('catalogo')">
-                    {{ __('CATÁLOGO') }}
+                <x-nav-link :href="route('catalogos')" :active="request()->routeIs('catalogos')">
+                    {{ __('CATÁLOGOS') }}
                 </x-nav-link>
                 <x-nav-link :href="route('contato')" :active="request()->routeIs('contato')">
                     {{ __('CONTATO') }}
@@ -216,7 +216,7 @@
 
                 <div class="mt-3 space-y-1">
                     <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Perfil') }}
+                        {{ __('Meu Perfil') }}
                     </x-responsive-nav-link>
 
                     <!-- Authentication -->

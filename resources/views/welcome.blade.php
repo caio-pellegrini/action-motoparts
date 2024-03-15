@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="title">Action Motoparts</x-slot>
+    <x-slot name="title">Action Moto Parts</x-slot>
 
     <div class="relative w-full overflow-hidden mb-auto sm:h-[60vh] -mt-px p-8">
         <img class="w-full h-full object-contain" src="{{asset('/images/banner_home.png')}}"></img>

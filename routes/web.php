@@ -36,9 +36,9 @@ Route::get('/quem-somos', function () {
     return view('quem-somos');
 })->name('quem-somos');
 
-Route::get('/catalogo', function () {
-    return view('catalogo');
-})->name('catalogo');
+Route::get('/catalogos', function () {
+    return view('catalogos');
+})->name('catalogos');
 
 Route::get('/contato', function () {
     return view('contato');

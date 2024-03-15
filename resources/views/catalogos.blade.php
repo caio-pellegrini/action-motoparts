@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="title">Catálogo | Action</x-slot>
+    <x-slot name="title">Catálogos | Action Moto Parts</x-slot>
 
     <x-slot name="header">
         {{ ('CATÁLOGOS DE COMPRA') }}

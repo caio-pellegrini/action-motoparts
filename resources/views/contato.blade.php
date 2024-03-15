@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="title">Perfil | Cafuné</x-slot>
+    <x-slot name="title">Contato | Action Moto Parts</x-slot>
 
     <x-slot name="header">
         {{ __('FALE CONOSCO') }}

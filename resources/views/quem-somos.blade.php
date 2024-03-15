@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <x-slot name="title">Quem Somos | Action</x-slot>
+    <x-slot name="title">Quem Somos | Action Moto Parts</x-slot>
 
     <x-slot name="header">
         {{ ('NOSSA HISTÓRIA') }}
