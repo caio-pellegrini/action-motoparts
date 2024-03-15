@@ -28,7 +28,6 @@
     <div class="md:flex items-center justify-center">
         <img class="max-w-full px-20" src="{{asset('/images/rifftel.png')}}" alt="">
         <img class="max-w-full px-20" src="{{asset('/images/levorin.png')}}" alt="">
-        <img src="" alt="">
     </div>
     </div>
 
