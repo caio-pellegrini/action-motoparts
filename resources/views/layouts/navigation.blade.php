@@ -50,7 +50,7 @@
                 <div class="grow my-3 px-6">
                     <form action="">
                         <div class="max-w-xl mx-auto flex items-center bg-cinza-search rounded-lg">
-                            <input type="search" placeholder="Olá, o que você procura?" class="w-full bg-transparent text-gray-500 border-none focus:outline-none focus:ring-0 focus:border-none py-1 pl-2" />
+                            <input type="search" placeholder="Olá, o que você procura?" class="w-full bg-transparent text-gray-900 border-none focus:outline-none focus:ring-0 focus:border-none py-1 pl-2" />
                             <button type="submit" class="p-2">
                                 <img src="{{ asset('/images/lupa-icon.svg') }}" alt="Buscar">
                             </button>
