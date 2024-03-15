@@ -46,9 +46,9 @@
                 PARCERiAS</h2>
         </div>
     </div>
-    <div class="md:flex items-center justify-center">
-        <img class="max-w-full px-20" src="{{asset('/images/rifftel.png')}}" alt="">
-        <img class="max-w-full px-20" src="{{asset('/images/levorin.png')}}" alt="">
+    <div class="md:flex items-center justify-center ">
+        <img class="max-w-full px-20 hover:scale-[1.1] ease-in-out transform transition-transform duration-300" src="{{asset('/images/rifftel.png')}}" alt="">
+        <img class="max-w-full px-20 hover:scale-[1.1] ease-in-out transform transition-transform duration-300" src="{{asset('/images/levorin.png')}}" alt="">
     </div>
     </div>
 
