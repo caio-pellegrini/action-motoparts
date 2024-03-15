@@ -3,8 +3,15 @@
             
 
             <div class="w-full md:w-1/3 mb-4 md:mb-0">
-                <p>(16) 99646-4493</p>
-                <p>contato@actionparts.com.br</p>
+            <a class="flex items-center gap-1 hover:text-gray-800" href="https://wa.me/send?phone=5516996464493" target="_blank">
+                        <img src="{{ asset('/images/whatsapp.svg') }}" alt="">
+                        <p>(16) 99646-4493</p>
+                    </a>
+                    <a class="flex items-center gap-1 hover:text-gray-800" href="mailto:contato@actionparts.com.br" target="_blank">
+                        
+                        <p>contato@actionparts.com.br</p>
+                    </a>
+                
             </div>
 
             
