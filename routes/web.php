@@ -44,6 +44,10 @@ Route::get('/contato', function () {
     return view('contato');
 })->name('contato');
 
+Route::get('/teste', function () {
+    return view('teste');
+})->name('teste');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
