@@ -1,10 +1,11 @@
 <x-app-layout>
 
-    <x-slot name="title">QUEM SOMOS</x-slot>
+    <x-slot name="title">Quem Somos | Action</x-slot>
 
-    <div class="font-readex text-[#333]"> 
+    <x-slot name="header">
+        {{ ('NOSSA HISTÓRIA') }}
+    </x-slot>
 
-    <h2 class="flex items-center justify-center mt-6 text-3xl p-8">NOSSA HISTÓRIA</h2>
     <div class="md:flex items-center justify-center mt-20 p-5 mb-20 space-x-[-100px]">
         <img class="max-w-full px-20 rounded-lg object-contain" src="{{asset('/images/historia.png')}}" alt="">
         <div class="px-24">
@@ -19,8 +20,9 @@
         <img class="max-w-full px-20 rounded-lg object-contain" src="{{asset('/images/fachada.png')}}" alt="">
         <div class="px-24">
             <h3 class="text-8 text-green-500 mb-4">
-            Rua Jose Oliver Filho, 270 Jardim Bela Vista Monte Alto SP, 15910-000</h3>
+                Rua Jose Oliver Filho, 270 Jardim Bela Vista Monte Alto SP, 15910-000</h3>
         </div>
     </div>
+
     <x-slot name="footer"></x-slot>
 </x-app-layout>

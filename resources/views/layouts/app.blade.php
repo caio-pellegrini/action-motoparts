@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ $title ?? '' }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>{{ $title ?? '' }}</title>
 
-        @yield('aditional-head')
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-         <!-- Scripts -->
-         @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
+    @yield('aditional-head')
 
-    <body class="font-sans antialiased">
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 
-        <header>
-            @include('layouts.navigation')
-        </header>
+<body class="font-sans antialiased">
 
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+    <header>
+        @include('layouts.navigation')
+    </header>
+
+    <div class="min-h-screen bg-gray-100">
+        <!-- Page Heading -->
+        @if (isset($header))
+        <div class="font-light tracking-wider text-2xl text-gray-800 leading-tight py-4">
+            <div class="flex items-center justify-center">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <h2>{{ $header }}</h2>
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <hr class="w-[85%] border-gray-500">
+            </div>
         </div>
-
-        @if (isset($footer))
-            @include('layouts.footer')
         @endif
 
-        {{ $scripts ?? ''}}
-        
-    </body>
+        <!-- Page Content -->
+        <main>
+            {{ $slot }}
+        </main>
+    </div>
+
+    @if (isset($footer))
+    @include('layouts.footer')
+    @endif
+
+    {{ $scripts ?? ''}}
+
+</body>
+
 </html>

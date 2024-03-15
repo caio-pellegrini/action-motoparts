@@ -54,6 +54,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/pedidos', [OrderController::class, 'store'])->name('novoPedido');
     Route::get('/pedidos', [OrderController::class, 'index'])->name('pedidos');
+
+    
 });
 
 Route::get('/produtos', [ProductController::class, 'index'])->name('produtos');
