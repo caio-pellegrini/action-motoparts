@@ -8,13 +8,11 @@
 
     <title>{{ $title ?? '' }}</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     @yield('aditional-head')
 
-    <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -25,7 +23,6 @@
     </header>
 
     <div class="min-h-screen bg-gray-100">
-        <!-- Page Heading -->
         @if (isset($header))
         <div class="font-light tracking-wider text-2xl text-gray-800 leading-tight py-4">
             <div class="flex items-center justify-center">
@@ -40,7 +37,6 @@
         @endif
 
 
-        <!-- Page Content -->
         <main>
             {{ $slot }}
         </main>
