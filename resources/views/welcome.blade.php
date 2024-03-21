@@ -24,7 +24,8 @@
     @endsection
 
     <div class="flex relative w-full overflow-hidden sm:h-[60vh] -mt-px px-8 hover:scale-[1.03] ease-in-out transform transition-transform duration-300">
-        <img class="w-full h-full object-contain" src="{{asset('/images/banner_home.png')}}"></img>
+        <img class="w-full h-full object-contain" src="{{asset('/images/banner_home.png')}}" type="">
+
     </div>
 
     <div class="md:flex items-center justify-center my-24 pb-14 px-32 space-x-20">
