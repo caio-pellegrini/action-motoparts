@@ -1,4 +1,15 @@
-# Projeto Cafuné Pâtisserie
+# Projeto Action Moto Parts
+
+## Tabela de Conteúdos
+- [Visão Geral](#visão-geral)
+- [Atualizações Recentes](#atualizações-recentes)
+- [Instalação e Configuração](#instalação-e-configuração)
+- [Uso](#uso)
+- [Roadmap](#roadmap)
+- [Contribuições](#contribuições)
+- [Licença](#licença)
+- [Contribuidores](#contribuidores)
+- [Contato](#contato)
 
 ## Visão Geral
 Bem-vindo ao 'Projeto Cafuné Pâtisserie' – uma solução inovadora para a gestão de patisseries. Este projeto foi desenvolvido pela equipe 'Wisetech', uma es simplificar o processo de gestão de pedidos, fornecer um painel administrativo amigável e melhorar a eficiência operacional de patisseries.
