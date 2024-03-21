@@ -235,7 +235,7 @@
 
                         <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                            {{ __('Sair') }}
+                            {{ __('SAIR') }}
                         </x-responsive-nav-link>
                     </form>
                 </div>
